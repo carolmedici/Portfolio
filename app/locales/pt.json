@@ -1,0 +1,19 @@
+{
+  "intro": {
+    "title": "Hi, I'm Carol",
+    "description": "Este portfólio é um espaço onde compartilho meus projetos, aprendizados e evolução na área."
+  },
+  "welcome": {
+    "title": "Bem vinda(o)",
+    "description": "Este portfólio é um espaço onde compartilho meus projetos, aprendizados e evolução na área."
+  },
+  "about": {
+    "title": "Sobre mim",
+    "text": "Sou desenvolvedora fullstack apaixonada por tecnologia. Focada em Java, Angular e React, construo      aplicações de ponta a ponta com foco em interfaces responsivas e integração de APIs. Priorizo performance, usabilidade e a aplicação de boas práticas para criar experiências fluidas e bem estruturadas. Minha transição da área da saúde para a tecnologia trouxe diferenciais como comunicação clara e empatia, fundamentais para a colaboração com o time."
+  },
+  "tech": "Tecnologias que utilizo",
+  "buttons": {
+    "viewProjects": "Projetos",
+    "contactMe": "Contato"
+  }
+}

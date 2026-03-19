@@ -1,0 +1,19 @@
+{
+  "intro": {
+    "title": "Hi, I'm Carol",
+    "description": "This portfolio is a space where I share my projects, learnings, and growth in the field."
+  },
+  "welcome": {
+    "title": "Welcome",
+    "description": "This portfolio is a space where I share my projects, learnings, and growth in the field."
+  },
+  "about": {
+    "title": "About me",
+    "text": "Full-stack developer focused on Java, Angular, and React, building end-to-end applications with a priority on responsive interfaces and API integration. I focus on performance, usability, and best practices to create fluid, well-structured experiences. My transition from healthcare to technology brought distinct advantages in clear communication and empathy—essential for team collaboration."
+  },
+  "tech": "Tech I Use",
+  "buttons": {
+    "viewProjects": "View Projects",
+    "contactMe": "Contact Me"
+  }
+}
