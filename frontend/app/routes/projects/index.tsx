@@ -7,32 +7,37 @@ import { AnimatePresence, motion } from 'framer-motion';
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: 'The Friendly Dev | Projects' },
-    { name: 'description', content: 'My website project portfolio' },
+    { title: 'Carolina Médici | Projects' },
+     { name: 'description', content: 'My Portfolio' },
   ];
 }
 
-export async function loader({
-  request,
-}: Route.LoaderArgs): Promise<{ projects: Project[] }> {
-  console.log('a', import.meta.env.VITE_API_URL);
-  const res = await fetch(
-    `${import.meta.env.VITE_API_URL}/projects?populate=*`
-  );
+export async function loader({request,}: Route.LoaderArgs): Promise<{ projects: Project[] }> {
+  
+  const apiUrl = import.meta.env.VITE_API_URL; 
+  const strapiBase = apiUrl.replace('/api', ''); 
+  
+  const res = await fetch(`${apiUrl}/projects?populate=*`);
+ 
   const json: StrapiResponse<StrapiProject> = await res.json();
+ 
+  const projects = json.data.map((item) => {  
+    const firstImage = Array.isArray(item.image) && item.image.length > 0 ? item.image[0] : item.image; 
 
-  const projects = json.data.map((item) => ({
-    id: item.id,
-    documentId: item.documentId,
-    title: item.title,
-    description: item.description,
-    image: item.image?.url ? `${item.image.url}` : '/images/no-image.png',
-    url: item.url,
-    date: item.date,
-    category: item.category,
-    featured: item.featured,
-  }));
-
+    return {
+      id: item.id,
+      documentId: item.documentId,
+      title: item.title,
+      description: item.description,
+      image: firstImage?.url 
+        ? `${strapiBase}${firstImage.url}` 
+        : 'https://placehold.co/600x400/1f2937/60a5fa?text=No+Image',
+      url: item.url,
+      date: item.date,
+      category: item.category,
+      featured: item.featured,
+    };
+  });  
   return { projects };
 }
 
@@ -61,7 +66,7 @@ const ProjectsPage = ({ loaderData }: Route.ComponentProps) => {
 
   return (
     <>
-      <h2 className='text-3xl text-white font-bold mb-8'>🚀 Projects</h2>
+      <h2 className='text-3xl text-white font-bold mb-8'>Projects</h2>
 
       <div className='flex flex-wrap gap-2 mb-8'>
         {categories.map((category) => (
@@ -73,8 +78,8 @@ const ProjectsPage = ({ loaderData }: Route.ComponentProps) => {
             }}
             className={`px-3 py-1 rounded text-sm cursor-pointer ${
               selectedCategory === category
-                ? 'bg-blue-600 text-white'
-                : 'bg-gray-700 text-gray-200'
+                ? 'bg-cyan-600 hover:bg-cyan-400 hover:text-gray-800 text-white px-4 py-2 rounded-md hover:cursor-pointer'
+                : 'bg-cyan-700 text-gray-200'
             }`}
           >
             {category}
