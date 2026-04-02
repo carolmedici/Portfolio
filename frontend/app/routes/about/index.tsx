@@ -5,13 +5,11 @@ import pt from "../../locales/pt.json";
 const AboutPage = () => {
   const [lang, setLang] = useState("en");
 
-  const t = lang === "en" ? en : pt;
+  const t = lang === "en" ? en : pt; 
 
   return (
-
-        <div className='max-w-5xl w-full mx-auto px-8 py-12 bg-gradient-to-br from-gray-600 via-gray-800 to-indigo-950 text-white rounded-3xl shadow-2xl transition-all duration-300'>
-
-        <div className="flex justify-end mb-6">
+    <div className='max-w-5xl w-full mx-auto px-8 py-12 bg-gradient-to-br from-gray-600 via-gray-800 to-indigo-950 text-white rounded-3xl shadow-2xl transition-all duration-300'>
+      <div className="flex justify-end mb-6">
         <button
           onClick={() => setLang(lang === "en" ? "pt" : "en")}
           className="bg-cyan-600 hover:bg-cyan-400 hover:text-gray-800 text-white px-4 py-2 rounded-md hover:cursor-pointer"

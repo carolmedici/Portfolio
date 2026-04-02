@@ -14,6 +14,10 @@
   "tech": "Tech I Use",
   "buttons": {
     "viewProjects": "View Projects",
-    "contactMe": "Contact Me"
+    "contactMe": "Contact Me",
+    "backHome": "Back to Home"
+  },
+  "projects":{
+    "title": "Projects"
   }
 }

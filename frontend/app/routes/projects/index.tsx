@@ -4,6 +4,12 @@ import type { Project, StrapiProject, StrapiResponse } from '~/types';
 import ProjectCard from '~/components/ProjectCard';
 import Pagination from '~/components/Pagination';
 import { AnimatePresence, motion } from 'framer-motion';
+import { useLanguage } from "~/context/LanguageContext";
+
+interface LayoutContext {
+  t: typeof import("../../locales/en.json");
+  lang: string;
+}
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -64,9 +70,15 @@ const ProjectsPage = ({ loaderData }: Route.ComponentProps) => {
   const indexOfFirst = indexOfLast - projectsPerPage;
   const currentProjects = filteredProjects.slice(indexOfFirst, indexOfLast);
 
+  const { t } = useLanguage();
+
   return (
     <>
-      <h2 className='text-3xl text-white font-bold mb-8'>Projects</h2>
+    <div className="flex justify-end mb-6">    
+      </div>
+      <h2 className='text-3xl text-white font-bold mb-8'>
+        {t.projects.title}
+      </h2>
 
       <div className='flex flex-wrap gap-2 mb-8'>
         {categories.map((category) => (

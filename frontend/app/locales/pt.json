@@ -14,6 +14,10 @@
   "tech": "Tecnologias que utilizo",
   "buttons": {
     "viewProjects": "Projetos",
-    "contactMe": "Contato"
+    "contactMe": "Contato",
+    "backHome": "Voltar para Home"
+  },
+  "projects":{
+    "title": "Projetos"
   }
 }
