@@ -19,5 +19,10 @@
   },
   "projects":{
     "title": "Projects"
+  },
+  "images":{
+    "swipe": "Swipe to see more photos",
+    "gallery": "Project Gallery",
+    "projectDetails": "Project Details"
   }
 }
