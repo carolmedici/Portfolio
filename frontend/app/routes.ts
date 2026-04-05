@@ -10,6 +10,7 @@ export default [
   layout('./routes/layouts/main.tsx', [
     route('about', './routes/about/index.tsx'),
     route('projects', './routes/projects/index.tsx'), 
-    route('projects/:id', './routes/projects/detail.tsx')   
+    route('projects/:id', './routes/projects/detail.tsx'),
+    route("contact", "routes/contact/index.tsx"),   
   ]),
 ] satisfies RouteConfig;

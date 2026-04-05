@@ -15,7 +15,9 @@
   "buttons": {
     "viewProjects": "View Projects",
     "contactMe": "Contact Me",
-    "backHome": "Back to Home"
+    "backHome": "Back to Home",
+    "sendMessage": "Send Message",
+    "sending": "Sending..."
   },
   "projects":{
     "title": "Projects"
@@ -24,5 +26,16 @@
     "swipe": "Swipe to see more photos",
     "gallery": "Project Gallery",
     "projectDetails": "Project Details"
+  },
+   "contatc":{
+    "name": "Full Name",
+    "email": "Email",
+    "subject": "Subject",
+    "message": "Message",
+    "contact": "Let's Connect",
+    "content": "I am always open to new projects, complex technical challenges, and opportunities to collaborate on innovative solutions.",
+    "available": "Available for relocation & international travel (EU Passport 🇫🇷)",
+    "error":  "Something went wrong. Please try again.",
+    "success": "Message sent successfully!"    
   }
 }

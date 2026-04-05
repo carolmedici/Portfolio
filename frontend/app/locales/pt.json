@@ -15,7 +15,9 @@
   "buttons": {
     "viewProjects": "Projetos",
     "contactMe": "Contato",
-    "backHome": "Voltar para Home"
+    "backHome": "Voltar para Home",
+    "sendMessage": "Enviar Mensagem",
+    "sending": "Enviando..."
   },
   "projects":{
     "title": "Projetos"
@@ -24,5 +26,16 @@
     "swipe": "Deslize para ver mais fotos",
     "gallery": "Galeria do Projeto",
     "projectDetails": "Detalhes do Projeto"
+  },
+  "contatc":{
+    "name": "Nome Completo",
+    "email": "Email",
+    "subject": "Assunto",
+    "message": "Mensagem",
+    "contact": "Vamos nos conectar",
+    "content": "Estou sempre aberta a novos projetos, desafios técnicos complexos e oportunidades de colaborar com soluções inovadoras.",
+    "available": "Disponível para mudança e viagens internacionais (Passaporte da UE 🇫🇷)",
+    "error":  "Algo deu errado. Por favor tente novamente",
+    "success": "Mensagem enviada com sucesso!"
   }
 }
