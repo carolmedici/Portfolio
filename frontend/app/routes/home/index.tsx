@@ -20,7 +20,7 @@ export default function Home() {
       <section className="bg-white  px-6">
         <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-12">          
             <div className="w-48 h-48 rounded-full bg-gray-200 overflow-hidden shadow-lg">
-              <img src="../public/images/profile.png" alt="Carolina Médici" className="w-full h-full object-cover" />
+              <img src="https://portfolio-eta-neon-10.vercel.app/images/profile.png" alt="Carolina Médici" className="w-full h-full object-cover" />
             </div>
 
           <div className="flex-1">

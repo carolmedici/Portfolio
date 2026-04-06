@@ -20,7 +20,7 @@ const AboutPage = () => {
    
       <div className='flex flex-col md:flex-row md:items-start items-center gap-10 mb-12'>
         <img
-          src="/images/profile.png"
+          src="https://portfolio-eta-neon-10.vercel.app/images/profile.png"
           alt='profile'
           className='w-40 h-40 rounded-full object-cover border-4 border-cyan-700 shadow-md'
         />

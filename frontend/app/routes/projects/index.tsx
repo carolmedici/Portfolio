@@ -21,8 +21,6 @@ export function meta({}: Route.MetaArgs) {
 export async function loader({ request }: Route.LoaderArgs): Promise<{ projects: Project[] }> {
   const apiUrl = import.meta.env.VITE_API_URL;  
 
-  console.log("LOG_DEBUG: API_URL detectada:", apiUrl || "Variável VITE_API_URL não encontrada!");
-
   if (!apiUrl) { 
     console.error("ERRO: O ambiente não forneceu a VITE_API_URL.");
     return { projects: [] };
