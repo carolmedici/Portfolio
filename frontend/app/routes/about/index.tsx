@@ -1,7 +1,6 @@
 import { useState } from "react";
 import en from "../../locales/en.json";
 import pt from "../../locales/pt.json";
-import profileImg from "/images/profile.png?url";
 
 const AboutPage = () => {
   const [lang, setLang] = useState("en");
@@ -21,7 +20,7 @@ const AboutPage = () => {
    
       <div className='flex flex-col md:flex-row md:items-start items-center gap-10 mb-12'>
         <img
-          src={profileImg}
+          src="/images/profile.png"
           alt='profile'
           className='w-40 h-40 rounded-full object-cover border-4 border-cyan-700 shadow-md'
         />

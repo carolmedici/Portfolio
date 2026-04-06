@@ -18,33 +18,49 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
-export async function loader({request,}: Route.LoaderArgs): Promise<{ projects: Project[] }> {
-  
-  const apiUrl = import.meta.env.VITE_API_URL; 
-  const strapiBase = apiUrl.replace('/api', ''); 
-  
-  const res = await fetch(`${apiUrl}/projects?populate=*`);
- 
-  const json: StrapiResponse<StrapiProject> = await res.json();
- 
-  const projects = json.data.map((item) => {  
-    const firstImage = Array.isArray(item.image) && item.image.length > 0 ? item.image[0] : item.image; 
+export async function loader({ request }: Route.LoaderArgs): Promise<{ projects: Project[] }> {
+  const apiUrl = import.meta.env.VITE_API_URL;  
 
-    return {
-      id: item.id,
-      documentId: item.documentId,
-      title: item.title,
-      description: item.description,
-      image: firstImage?.url 
-        ? `${strapiBase}${firstImage.url}` 
-        : 'https://placehold.co/600x400/1f2937/60a5fa?text=No+Image',
-      url: item.url,
-      date: item.date,
-      category: item.category,
-      featured: item.featured,
-    };
-  });  
-  return { projects };
+  console.log("LOG_DEBUG: API_URL detectada:", apiUrl || "Variável VITE_API_URL não encontrada!");
+
+  if (!apiUrl) { 
+    console.error("ERRO: O ambiente não forneceu a VITE_API_URL.");
+    return { projects: [] };
+  }
+
+  try {
+    const res = await fetch(`${apiUrl}/projects?populate=*`);
+    
+    if (!res.ok) {
+      console.error(`ERRO_HTTP: Status ${res.status} ao buscar do Strapi`);
+      return { projects: [] };
+    }
+
+    const json: StrapiResponse<StrapiProject> = await res.json();    
+    const strapiBase = apiUrl.replace('/api', '');
+
+    const projects = (json.data || []).map((item) => {
+      const firstImage = Array.isArray(item.image) && item.image.length > 0 ? item.image[0] : item.image;
+      return {
+        id: item.id,
+        documentId: item.documentId,
+        title: item.title,
+        description: item.description,
+        image: firstImage?.url 
+          ? (firstImage.url.startsWith('http') ? firstImage.url : `${strapiBase}${firstImage.url}`)
+          : 'https://placehold.co/600x400/1f2937/60a5fa?text=Sem+Imagem',
+        url: item.url,
+        date: item.date,
+        category: item.category,
+        featured: item.featured,
+      };
+    });
+
+    return { projects };
+  } catch (error) {
+    console.error("LOG_CRITICAL: Falha na comunicação com o backend:", error);
+    return { projects: [] };
+  }
 }
 
 const ProjectsPage = ({ loaderData }: Route.ComponentProps) => {
