@@ -14,6 +14,7 @@ const MainLayout = () => {
   const { lang, setLang, t } = useLanguage();
   const location = useLocation();
   const isHome = location.pathname === '/'; 
+  const isDetails = /^\/projects\/.+/.test(location.pathname);
 
   const toggleLang = () => setLang(lang === "en" ? "pt" : "en");
 
@@ -22,9 +23,14 @@ const MainLayout = () => {
       
       <div className="w-full max-w-6xl flex justify-between items-center mb-8">
         <div>
-          {!isHome && (
+          {!isHome && !isDetails && (
             <Link to="/" className="text-gray-400 hover:text-cyan-400">
               ← {t.buttons.backHome}
+            </Link>
+          )}
+           {isDetails && (
+            <Link to="/projects" className="text-gray-400 hover:text-cyan-400">
+              ← {t.buttons.backProjects}
             </Link>
           )}
         </div>
